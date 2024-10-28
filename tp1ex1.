@@ -15,7 +15,7 @@ printf("%c",M[i][j]);
 }
 printf("\n");
 }
-printf("donner les éléments d' indices impair de chaque lignes :\n");
+printf("donner les Ã©lÃ©ments d' indices impair de chaque lignes :\n");
 for(i=0; i<5 ; i++) {
 for(j=0; j<5;j+=2){
 printf("%c",M[i][j]) ;
