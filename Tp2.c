@@ -8,11 +8,11 @@
 
     if( chaine == NULL) {
 
-        printf("erreur d'allocation mémoire \n") ;
+        printf("erreur d'allocation mÃ©moire \n") ;
 
                 exit(1) ;
                                      }
-                printf("veuillez entrer la chaine de caractères :\n")  ;
+                printf("veuillez entrer la chaine de caractÃ¨res :\n")  ;
 
                            scanf("%s",chaine) ;
 
@@ -58,13 +58,6 @@
 
                         char Tab [ m + 1] , T[ m + 1] ;
 
-                         chargerTab( ch , Tab) ;
-
-                         afficherTab( Tab , m ) ;
-
-                          inverserTab ( Tab , T, m) ;
-
-                          afficherTab ( T, m) ;
 
         free (ch);
 
