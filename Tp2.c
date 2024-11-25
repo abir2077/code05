@@ -9,8 +9,6 @@
     if( chaine == NULL) {
 
         printf("erreur d'allocation mémoire \n") ;
-
-                exit(1) ;
                                      }
                 printf("veuillez entrer la chaine de caractères :\n")  ;
 
@@ -57,6 +55,14 @@
                      m = longueur (ch) ;
 
                         char Tab [ m + 1] , T[ m + 1] ;
+
+                        charger Tab ( ch , Tab ) ;
+
+                        afficher Tab ( Tab , m ) ;
+
+                        inverser Tab ( Tab , T ,m );
+
+                        afficher Tab ( T , m) ;
 
 
         free (ch);
