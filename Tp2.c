@@ -9,6 +9,8 @@
     if( chaine == NULL) {
 
         printf("erreur d'allocation mémoire \n") ;
+
+                 return 1 ;
                                      }
                 printf("veuillez entrer la chaine de caractères :\n")  ;
 
