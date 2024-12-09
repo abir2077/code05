@@ -1,83 +1,70 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-  char *ChargerChaine(int N) 
-   {
-       char *chaine  =  (char *) malloc ((N+1) * sizeof(char))  ;
-    // حجز مكان في ذاكرة
-     if( chaine == NULL) 
-       {
-         printf("erreur d'allocation mémoire \n") ;
-
-       return 1 ;//الخروج في حالة فشل الحجز
-          }
-         printf("veuillez entrer la chaine de caractères :\n")  ;
-
-         scanf("%s",chaine) ;//قراءة السلسلة
-
-         return chaine ;
+// دالة لقراءة سلسلة من الأحرف
+char *ChargerChaine(int N) {
+    char *chaine = (char *)malloc((N + 1) * sizeof(char));  // تخصيص الذاكرة
+    if (chaine == NULL) {
+        printf("Erreur d'allocation mémoire\n");
+        return(1);  // الخروج في حال فشل التخصيص
     }
+    printf("Veuillez entrer la chaine de caractères:\n");
+    scanf("%s", chaine);  // قراءة السلسلة من المستخدم
+    return chaine;
+}
 
-  int Longueur ( char *ch)
-     {
-        int length = 0;
-        while (ch[length] != '\0') //مادام السلسلة لم تنتهي
-          {
-            length++ ; //زيادة الطول عند كل حرف
-          }
-         return length ;
-     }
-
- void ChargerTab(char *p , char Tab[] ) //اجراء لنسخ السلسلة من مؤشر الى مصفوفة باستخدام حلقة
-   {
-
-       int  i = 0 ;
-       while ( p [i] != ' \0 ')// نسخ الاحرف حتى نهاية السلسلة
-         { 
-            Tab[i] = p[i]  ;
-            i++ ;
-         }
-       Tab[i] = ' \0 ' ; //اضافة الحرف في النهاية
+// دالة لحساب طول السلسلة باستخدام حلقة while
+int Longueur(char *ch) {
+    int length = 0;
+    while (ch[length] != '\0') {  // ما دام السلسلة لم تنتهي
+        length++;  // زيادة الطول عند كل حرف
     }
+    return length;
+}
 
-// اجراء لعكس ترتيب العناصر في مصفوفة و نسخها الى مصفوفة اخرى باستخدام حلقة
- void InverserTab( char Tab[] , char T[] , int m )
-   {
-           for ( int i = 0; i < m; i++)
-               {
-                 T[i] = Tab [m - 1 - i] ;// نسخ الحروف بالعكس
-               }
-        T[m] =  '\0' ;// اضافة الحرف في النهاية
+// إجراء لنسخ السلسلة من مؤشر إلى مصفوفة باستخدام حلقة
+void ChargerTab(char *p, char Tab[]) {
+    int i = 0;
+    while (p[i] != '\0') {  // نسخ الأحرف حتى نهاية السلسلة
+        Tab[i] = p[i];
+        i++;
     }
+    Tab[i] = '\0';  // إضافة الحرف null في النهاية
+}
 
- //اجراء لعرض محتوى مصفوفة الاحرف 
- void AfficherTab(char Tab[] )
-    {
-        printf("%s\n" , Tab) ;
+// إجراء لعكس ترتيب العناصر في مصفوفة ونسخها إلى مصفوفة أخرى باستخدام حلقة
+void InverserTab(char Tab[], char T[], int m) {
+    int i;
+    for (i = 0; i < m; i++) {
+        T[i] = Tab[m - 1 - i];  // نسخ الحروف بالعكس
     }
+    T[m] = '\0';  // إضافة الحرف null في النهاية
+}
 
-    int main()
-{
-    int n,m  ;  char * ch ;
+// إجراء لعرض محتوى مصفوفة الأحرف
+void AfficherTab(char Tab[]) {
+    printf("%s\n", Tab);
+}
 
-     printf("veuillez saisir la taille maximale de la chaine :\n") ;
-      scanf ("%d" ,&n) ; //ادخال حجم السلسلة
+// البرنامج الرئيسي
+int main() {
+    int n, m;
+    char *ch;
 
-      ch  =  ChargerChaine(n)  ; //قراءة السلسلة 
+    printf("Veuillez saisir la taille maximale de la chaine:\n");
+    scanf("%d", &n);  // إدخال حجم السلسلة
 
-       m = Longueur (ch) ; //حساب طول السلسلة 
+    ch = ChargerChaine(n);  // قراءة السلسلة
+    m = Longueur(ch);  // حساب طول السلسلة
 
-       char Tab[ m + 1] , T[ m + 1] ;
+    char Tab[m + 1], T[m + 1];
+    ChargerTab(ch, Tab);  // نسخ السلسلة إلى مصفوفة
+    AfficherTab(Tab);  // عرض السلسلة الأصلية
 
-       chargerTab ( ch , Tab ) ; //نسخ السلسلة الى مصفوفة
+    InverserTab(Tab, T, m);  // عكس السلسلة ونسخها إلى مصفوفة جديدة
+    AfficherTab(T);  // عرض السلسلة المعكوسة
 
-       AfficherTab ( Tab ) ;// عرض السلسلة الاصلية 
+    free(ch);  // تحرير الذاكرة المخصصة
 
-      InverserTab ( Tab , T , m );// عكس السلسلة و نسخها الى مصفوفة جديدة
-
-       AfficherTab ( T ) ;// عرض السلسلة المعكوسة
-       
-       free (ch);// تحرير الذاكرة 
-
-    return 0 ;
+    return 0;
 }
