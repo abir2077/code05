@@ -12,7 +12,7 @@ element* creerListe() {
     return NULL;
 }
 
-// تحميل القائمة من مصفوفة
+// تحويل المصفوفة الى قائمة
 element* chargerListe(int Tab[], int taille) {
     element *liste = NULL, *nouveau, *temp;
     for (int i = 0; i < taille; i++) {
