@@ -9,7 +9,7 @@ char *ChargerChaine(int N) {
         return(1);  // الخروج في حال فشل التخصيص
     }
     printf("Veuillez entrer la chaine de caractères:\n");
-    scanf("%s", chaine);  // قراءة السلسلة من المستخدم
+    scanf("%s", chaine);  // قراءة السلسلة 
     return chaine;
 }
 
