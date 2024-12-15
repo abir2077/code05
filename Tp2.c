@@ -3,7 +3,7 @@
 
 // دالة لقراءة سلسلة من الأحرف
 char *ChargerChaine(int N) {
-    char *chaine = (char *)malloc((N + 1) * sizeof(char));  // تخصيص الذاكرة
+    char *chaine = (char *)malloc((N + 1) * sizeof(char));  
     if (chaine == NULL) {
         printf("Erreur d'allocation mémoire\n");
         return(1);  // الخروج في حال فشل التخصيص
@@ -64,7 +64,7 @@ int main() {
     InverserTab(Tab, T, m);  // عكس السلسلة ونسخها إلى مصفوفة جديدة
     AfficherTab(T);  // عرض السلسلة المعكوسة
 
-    free(ch);  // تحرير الذاكرة المخصصة
+    free(ch);  
 
     return 0;
 }
