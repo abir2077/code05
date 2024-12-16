@@ -7,7 +7,7 @@ typedef struct element {
     struct element *suivant;
 } element;
 
-// إنشاء قائمة فارغة
+ 
 element* creerListe() {
     return NULL;
 }
