@@ -13,7 +13,7 @@ char *ChargerChaine(int N) {
     return chaine;
 }
 
-// دالة لحساب طول السلسلة باستخدام حلقة while
+
 int Longueur(char *ch) {
     int length = 0;
     while (ch[length] != '\0') {  // ما دام السلسلة لم تنتهي
